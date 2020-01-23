@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\View\View;
+
 class HomeController extends Controller {
 
 	/**
@@ -14,9 +19,19 @@ class HomeController extends Controller {
 
 	/**
 	 * Show the application dashboard.
-	 * @return \Illuminate\Contracts\Support\Renderable
+	 * @return Renderable
 	 */
 	public function index () {
 		return view('home');
+	}
+
+	/**
+	 * @param User $user
+	 *
+	 * @return Factory|View
+	 */
+	public function user (User $user) {
+
+		return view('profile', compact('user'));
 	}
 }

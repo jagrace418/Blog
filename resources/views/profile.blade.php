@@ -1,3 +1,7 @@
+<?php
+/** @var \App\User $user */
+?>
+
 @extends('layouts.app')
 
 @section('content')
@@ -7,7 +11,7 @@
 				{{--			image here--}}
 			</div>
 			<div>
-				{{--			name here--}}
+				{{$user->name}}
 			</div>
 		</div>
 	</div>
