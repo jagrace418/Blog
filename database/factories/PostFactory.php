@@ -12,7 +12,7 @@ $factory->define(Post::class, function (Faker $faker) {
 		'user_id' => function () {
 			return create(User::class)->id;
 		},
-		'title'   => $faker->title,
+		'title'   => $faker->sentence,
 		//the 2nd param is required to return a string
 		'content' => $faker->paragraphs(3, true),
 	];
