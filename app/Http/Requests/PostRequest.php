@@ -21,7 +21,7 @@ class PostRequest extends FormRequest {
 	public function rules () {
 		return [
 			'title'   => 'required|max:255',
-			'content' => 'nullable',
+			'content' => 'required',
 		];
 	}
 
@@ -32,6 +32,7 @@ class PostRequest extends FormRequest {
 	public function messages () {
 		return [
 			'title.required' => 'A post needs a title!',
+			'content.required' => 'What\' the point of a blog if it doesn\'t say anything?'
 		];
 	}
 }
