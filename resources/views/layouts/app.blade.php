@@ -14,7 +14,7 @@
 <div id="app">
 	<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
 		<div class="container">
-			<a class="navbar-brand" href="{{ url('/') }}">
+			<a class="navbar-brand" href="{{ route('home') }}">
 				{{ config('app.name', 'Laravel') }}
 			</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -28,7 +28,7 @@
 				<ul class="navbar-nav mr-auto">
 					@auth()
 						<li class="nav-item">
-							<a class="nav-link" href="/posts/create">Create Post</a>
+							<a id="createPost" class="nav-link" href="/posts/create">Create Post</a>
 						</li>
 					@endauth
 				</ul>
