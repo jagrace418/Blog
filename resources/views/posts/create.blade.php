@@ -17,7 +17,7 @@
 				<textarea name="content" id="content" cols="30" rows="10" required></textarea>
 			</div>
 			<div class="form-group">
-				<button type="submit" class="btn btn-primary">Post</button>
+				<button type="submit" class="btn">Post</button>
 			</div>
 
 			@if(count($errors))

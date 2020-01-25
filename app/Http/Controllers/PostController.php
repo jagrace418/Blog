@@ -20,6 +20,15 @@ class PostController extends Controller {
 	}
 
 	/**
+	 * @return Factory|View
+	 */
+	public function index () {
+		$posts = Post::all();
+
+		return view('posts.index', compact('posts'));
+	}
+
+	/**
 	 * @param Post $post
 	 *
 	 * @return Factory|View
