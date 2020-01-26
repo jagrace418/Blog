@@ -15,7 +15,7 @@ class UserTest extends DuskTestCase {
 	use DatabaseMigrations;
 	use WithFaker;
 
-	public function testCreateUser () {
+	public function testLogin () {
 		$user = create(User::class, [
 			'email'    => $this->faker->email,
 			'password' => bcrypt('password')
@@ -40,8 +40,8 @@ class UserTest extends DuskTestCase {
 				->type('password', 'password')
 				->type('password_confirmation', 'password')
 				->press('Register')
-				->assertSee('logged in!')
-				->assertSee('Create Post');
+				->waitForRoute('home')
+				->assertSee('logged in!');
 		});
 	}
 }
