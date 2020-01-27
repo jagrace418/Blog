@@ -99,6 +99,11 @@ class PostTest extends TestCase {
 			->assertRedirect(route('home'));
 
 		$this->assertDatabaseMissing('posts', ['id' => $this->post->id]);
+
+		$this->assertDatabaseMissing('activities', [
+			'subject_id'   => $this->post->id,
+			'subject_type' => Post::class,
+		]);
 	}
 
 	public function testNonAuthCannotDeletePost () {
