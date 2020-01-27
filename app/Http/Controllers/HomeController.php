@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Activity;
 use App\User;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Contracts\View\Factory;
@@ -32,6 +33,9 @@ class HomeController extends Controller {
 	 */
 	public function user (User $user) {
 
-		return view('profile', compact('user'));
+		return view('profiles.show', [
+			'user'       => $user,
+			'activities' => Activity::feed($user),
+		]);
 	}
 }
