@@ -11,18 +11,18 @@ use Illuminate\Support\Str;
 
 /**
  * App\Post
- * @property-read User   $creator
+ * @property-read User                                                     $creator
  * @method static Builder|Post newModelQuery()
  * @method static Builder|Post newQuery()
  * @method static Builder|Post query()
  * @mixin Eloquent
- * @property int         $id
- * @property int         $user_id
- * @property string      $title
- * @property string      $content
- * @property string      $slug
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
+ * @property int                                                           $id
+ * @property int                                                           $user_id
+ * @property string                                                        $title
+ * @property string                                                        $content
+ * @property string                                                        $slug
+ * @property Carbon|null                                                   $created_at
+ * @property Carbon|null                                                   $updated_at
  * @method static Builder|Post whereContent($value)
  * @method static Builder|Post whereCreatedAt($value)
  * @method static Builder|Post whereId($value)
@@ -30,8 +30,12 @@ use Illuminate\Support\Str;
  * @method static Builder|Post whereTitle($value)
  * @method static Builder|Post whereUpdatedAt($value)
  * @method static Builder|Post whereUserId($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Activity[] $activity
+ * @property-read int|null                                                 $activity_count
  */
 class Post extends Model {
+
+	use RecordsActivity;
 
 	protected $guarded = [];
 
