@@ -8,11 +8,13 @@
 @extends('layouts.app')
 
 @section('content')
-	<div>
+	<div class="w-full max-w-xs content-center mx-auto">
 		@forelse($posts as $post)
 			<div class="card">
 				<div>
-					{{$post->title}}
+					<a href="{{$post->path()}}">
+						{{$post->title}}
+					</a>
 				</div>
 				<div>
 					{{$post->creator->name}}
@@ -23,9 +25,12 @@
 			</div>
 			<hr/>
 		@empty
-			<p>
-				There are no posts yet!
-			</p>
+			<div class="w-full max-w-xs content-center mx-auto card">
+				<p>
+					There are no posts yet!
+				</p>
+			</div>
+
 		@endforelse
 	</div>
 @endsection

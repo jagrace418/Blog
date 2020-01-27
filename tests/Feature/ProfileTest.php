@@ -12,7 +12,7 @@ class ProfileTest extends TestCase {
 
 	use DatabaseMigrations;
 
-	public function test_user_has_profile () {
+	public function testUserHasProfile () {
 		$this->signIn();
 		/** @var User $user */
 		$user = create(User::class);
@@ -20,7 +20,7 @@ class ProfileTest extends TestCase {
 			->assertSee($user->name);
 	}
 
-	public function test_guest_cannot_view_profile () {
+	public function testGuestCannotViewProfile () {
 		/** @var User $user */
 		$user = create(User::class);
 		$this->get(route('profile', ['user' => $user]))

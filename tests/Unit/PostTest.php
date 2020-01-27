@@ -13,12 +13,12 @@ class PostTest extends TestCase {
 
 	use DatabaseMigrations;
 
-	public function test_post_has_creator () {
+	public function testPostHasCreator () {
 		$post = create(Post::class);
 		self::assertInstanceOf(User::class, $post->creator);
 	}
 
-	public function test_post_has_path () {
+	public function testPostHasPath () {
 		$post = create(Post::class);
 		self::assertEquals($post->path(), "/posts/{$post->slug}");
 	}

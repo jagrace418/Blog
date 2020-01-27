@@ -41,7 +41,7 @@
 					{{__('Remember Me')}}
 				</label>
 			</div>
-			<div class="flex items-center justify-between">
+			<div class="form-group">
 				<button class="btn" type="submit">
 					{{__('Login')}}
 				</button>
