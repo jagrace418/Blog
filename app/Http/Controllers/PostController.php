@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PostRequest;
 use App\Post;
+use Exception;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
@@ -58,10 +59,21 @@ class PostController extends Controller {
 		return redirect($post->path());
 	}
 
+	/**
+	 * @param Post $post
+	 *
+	 * @return Factory|View
+	 */
 	public function edit (Post $post) {
 		return view('posts.edit', compact('post'));
 	}
 
+	/**
+	 * @param PostRequest $request
+	 * @param Post        $post
+	 *
+	 * @return RedirectResponse|Redirector
+	 */
 	public function update (PostRequest $request, Post $post) {
 
 		$post->update($request->validated());
@@ -69,10 +81,21 @@ class PostController extends Controller {
 		return redirect($post->path());
 	}
 
+	/**
+	 * @param Post $post
+	 *
+	 * @return Factory|View
+	 */
 	public function delete (Post $post) {
 		return view('posts.delete', compact('post'));
 	}
 
+	/**
+	 * @param Post $post
+	 *
+	 * @return RedirectResponse|Redirector
+	 * @throws Exception
+	 */
 	public function destroy (Post $post) {
 		$post->delete();
 
