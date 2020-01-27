@@ -16,7 +16,7 @@ class PostController extends Controller {
 	 */
 	public function __construct () {
 		$this->middleware('auth')
-			->except(['show']);
+			->except(['show', 'index']);
 	}
 
 	/**
@@ -56,5 +56,26 @@ class PostController extends Controller {
 		);
 
 		return redirect($post->path());
+	}
+
+	public function edit (Post $post) {
+		return view('posts.edit', compact('post'));
+	}
+
+	public function update (PostRequest $request, Post $post) {
+
+		$post->update($request->validated());
+
+		return redirect($post->path());
+	}
+
+	public function delete (Post $post) {
+		return view('posts.delete', compact('post'));
+	}
+
+	public function destroy (Post $post) {
+		$post->delete();
+
+		return redirect(route('home'));
 	}
 }
