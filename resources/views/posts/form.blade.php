@@ -6,8 +6,8 @@
 </div>
 <div class="form-group">
 	<label for="content">Content:</label>
-	<textarea name="content" id="content" cols="20" rows="6" required
-			  class="w-full shadow-inner p-4 border-0">{{$post->content}}</textarea>
+	<textarea name="content" id="content" cols="20" rows="15"
+			  class="wysiwyg form-control w-full shadow-inner p-4 border-0">{{$post->content}}</textarea>
 </div>
 <div class="form-group">
 	<button type="submit" class="btn">{{$submitText}}</button>
