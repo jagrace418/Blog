@@ -14,7 +14,7 @@
 		</div>
 		<hr/>
 		<div>
-			{{$post->content}}
+			{!! $post->content !!}
 		</div>
 		<div class="mt-4">
 			<a class="btn" href="{{$post->path() . '/edit'}}">Edit</a>

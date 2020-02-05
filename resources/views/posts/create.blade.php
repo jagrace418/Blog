@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-	<div class="w-full max-w-xs content-center mx-auto card">
-		<form action="/posts" method="POST">
+	<div class="content-center mx-auto">
+		<form class="px-20" action="/posts" method="POST">
 			@include('posts.form', [
 				'post' => new \App\Post(),
 				'submitText' => 'Create Post',
